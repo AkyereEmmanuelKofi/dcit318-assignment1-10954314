@@ -45,3 +45,85 @@ class GradeCalculator
         }
     }
 }
+
+using System;
+
+class TicketPriceCalculator
+{
+    static void Main()
+    {
+        // Prompt the user to enter their age
+        Console.Write("Enter your age: ");
+        string input = Console.ReadLine();
+
+        // Validate the input and convert it to an integer
+        if (int.TryParse(input, out int age) && age >= 0)
+        {
+            // Determine the ticket price based on the age
+            int ticketPrice;
+            if (age <= 12 || age >= 65)
+            {
+                ticketPrice = 7; // Discounted price for children and senior citizens
+            }
+            else
+            {
+                ticketPrice = 10; // Regular price for others
+            }
+
+            // Display the ticket price
+            Console.WriteLine($"The ticket price is GHC{ticketPrice}.");
+        }
+        else
+        {
+            // Handle invalid input
+            Console.WriteLine("Please enter a valid age.");
+        }
+    }
+}
+
+
+using System;
+
+class TriangleType
+{
+    static void Main()
+    {
+        // Prompt the user to enter the lengths of the three sides of the triangle
+        Console.Write("Enter the length of the first side: ");
+        string input1 = Console.ReadLine();
+        Console.Write("Enter the length of the second side: ");
+        string input2 = Console.ReadLine();
+        Console.Write("Enter the length of the third side: ");
+        string input3 = Console.ReadLine();
+
+        // Validate the input and convert it to integers
+        if (double.TryParse(input1, out double side1) && side1 > 0 &&
+            double.TryParse(input2, out double side2) && side2 > 0 &&
+            double.TryParse(input3, out double side3) && side3 > 0)
+        {
+            // Determine the type of triangle
+            string triangleType;
+            if (side1 == side2 && side2 == side3)
+            {
+                triangleType = "Equilateral";
+            }
+            else if (side1 == side2 || side2 == side3 || side1 == side3)
+            {
+                triangleType = "Isosceles";
+            }
+            else
+            {
+                triangleType = "Scalene";
+            }
+
+            // Display the type of triangle
+            Console.WriteLine($"The triangle is {triangleType}.");
+        }
+        else
+        {
+            // Handle invalid input
+            Console.WriteLine("Please enter valid positive numbers for the lengths of the sides.");
+        }
+    }
+}
+
